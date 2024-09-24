@@ -1,0 +1,45 @@
+<?php
+$payment_method = $this->getPaymentMethod();
+?>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="Model/Skin/css/style.css">
+    <title>payment method</title>
+  </head>
+  <body>
+    <?php require_once "View/html/header.phtml" ?>
+
+    <table>
+      <tr>
+      <td><h3>Edit payment method<h3></td>
+      <td><a class="btn btn-primary mx-2" href="<?php echo $this->getModelUrl()->getUrl('grid',null,null,true); ?>">cancel</a> </td>
+      <form action="<?php echo $this->getModelUrl()->getUrl('update'); ?>" method="POST">
+      <td><button class="btn btn-primary">save</button></td>
+    </tr>
+    </table>
+    <br>
+
+    <table class="table table-bordered">
+      <form action="update_payment_method.php" method="GET">
+        <tr hidden>
+          <th>PAYMENT_METHOD_ID</th>
+          <td><input type="text" name="payment_method[payment_method_id]" value="<?php echo $payment_method['payment_method_id']?>"></td>
+        </tr>
+        <tr>
+          <th>NAME</th>
+          <td><input type="text" name="payment_method[name]" value="<?php echo $payment_method['name']?>"></td>
+        </tr>
+        <th> STATUS</th>
+        <td> <select name="payment_method[status]"   >
+          <option value="available"name="available">available</option>
+          <option value="unavailable"name="unavailable">unavailable</option>
+          
+        </select> </td>
+      </tr>
+    </form>
+    
+  </table>
+  <?php require_once "View/html/footer.phtml" ?>
+</body>
+</html>

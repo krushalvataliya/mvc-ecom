@@ -1,0 +1,64 @@
+<?php
+$customer = $this->getCustomer();
+?>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="Model/Skin/css/style.css">
+    <title>customer</title>
+  </head>
+  <body>
+    <?php require_once "View/html/header.phtml" ?>
+
+     <table>
+      <tr>
+      <td><h3>Edit customer<h3></td>
+      <td><a class="btn btn-primary mx-2" href="<?php echo $this->getModelUrl()->getUrl('grid',null,null,true); ?>">cancel</a> </td>
+      <form action="<?php echo $this->getModelUrl()->getUrl('update'); ?>" method="POST">
+      <td><button class="btn btn-primary"> save`</button></td>
+    </tr>
+    </table>
+	<table class="table table-bordered">
+
+        <tr hidden>
+          <th> CUSTOMER_ID</th>
+          <td><input type="number" name="customer[customer_id]" value="<?php echo $customer['customer_id']?>"></td>
+        </tr>
+        <tr>
+          <th> FIRST_NAME</th>
+          <td><input type="text" name="customer[first_name]" value="<?php echo $customer['first_name']?>"></td>
+        </tr>
+        <tr>
+          <th> LAST_NAME</th>
+          <td><input type="text" name="customer[last_name]" value="<?php echo $customer['last_name']?>"></td>
+        </tr>
+        <tr>
+          <th> EMAIL</th>
+          <td><input type="email" name="customer[email]" value="<?php echo $customer['email']?>"></td>
+        </tr>
+        <tr>
+          <th> GENDER</th>
+          <td> <select name="customer[gender]"   >
+            <option value="male" name="male">male</option>
+            <option value="female" name="female">female</option>
+            
+          </select> </td>
+        </tr>
+        <tr>
+          <th> MOBILE</th>
+          <td><input type="number" name="customer[mobile]" value="<?php echo $customer['mobile']?>"></td>
+        </tr>
+        <tr>
+          <th> STATUS</th>
+          <td> <select name="customer[status]"   >
+            <option value="1"name="Available">Available</option>
+            <option value="2  "name="unavailable">unavailable</option>
+            
+          </select> </td>
+        </tr>
+      </form>
+      
+    </table>
+    <?php require_once "View/html/header.phtml" ?>
+  </body>
+</html>

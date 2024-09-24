@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="Model/Skin/css/style.css">
+    <title>customer</title>
+  </head>
+  
+  <body>
+    <?php require_once "View/html/header.phtml" ?>
+
+
+    <table>
+    	<tr>
+    	<td><h3>Add customer<h3></td>
+    	<td><a class="btn btn-primary mx-2" href="<?php echo $this->getModelUrl()->getUrl('grid',null,null,true); ?>">cancel</a> </td>
+    	<form action="<?php echo $this->getModelUrl()->getUrl('insert'); ?>" method="POST">
+    	<td><button class="btn btn-primary"> Add</button></td>
+    </tr>
+    </table>
+<br>
+	<table class="table table-bordered">
+          
+          <tr>
+            <th> FIRST_NAME</th>
+            <td><input type="text" name="customer[first_name]"></td>
+          </tr>
+          <tr>
+            <th> LAST_NAME</th>
+            <td><input type="text" name="customer[last_name]"></td>
+          </tr>
+          <tr>
+            <th> EMAIL</th>
+            <td><input type="email" name="customer[email]"></td>
+          </tr>
+          <tr>
+            <th> GENDER</th>
+            <td> <select name="customer[gender]"   >
+              <option value="male" name="male">male</option>
+              <option value="female" name="female">female</option>
+              
+            </select> </td>
+          </tr>
+          <tr>
+            <th> MOBILE</th>
+            <td><input type="number" name="customer[mobile]"></td>
+          </tr>
+          <tr>
+            <th> STATUS</th>
+            <td> <select name="customer[status]"   >
+              <option value="Available" name="Available">Available</option>
+              <option value="unavailable" name="unavailable">unavailable</option>
+              
+            </select> </td>
+          </tr>
+          <td >
+            <h6>add customer address</h6>
+          </td>
+          <?php require 'View/customer_address/add.phtml' ?>
+        </form>
+        
+      </table>
+      <?php require_once "View/html/footer.phtml" ?>
+    </body>
+  </html>

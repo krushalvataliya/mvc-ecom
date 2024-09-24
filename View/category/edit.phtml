@@ -1,0 +1,66 @@
+<?php
+$category = $this->getEditCategory();
+$parent = $this->getCategory();
+?>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="Model/Skin/css/style.css">
+    <title>category</title>
+  </head>
+  
+  <body>
+    <?php require_once "View/html/header.phtml" ?>
+    <table>
+        <tr>
+        <td><h3>Edit category<h3></td>
+        <td><a class="btn btn-primary mx-2" href="<?php echo $this->getModelUrl()->getUrl('grid',null,null,true); ?>">cancel</a> </td>
+        <form action="<?php echo $this->getModelUrl()->getUrl('update'); ?>" method="POST">
+        <td><button class="btn btn-primary"> save</button></td>
+      </tr>
+      </table>
+	<table class="table table-bordered">
+      <form action="insert_category.php" method="GET">
+        <tr hidden>
+          <th> CATEGORY_ID</th>
+          <td><input type="number" name="category[category_id]" value="<?php echo $category['category_id'] ?>" ></td>
+        </tr>
+        
+        <tr> <th> PARENT CATEGORY</th>
+          <td><select name="category[parent_id]" >
+            <option value=null >select</option>
+            <?php foreach ($parent as $categorya): ?>
+            <option value="<?php echo $categorya['category_id'];?>" <?php  if ($category['parent_id'] == $categorya['category_id']) { echo "selected";} ?>>
+              <?php if ($categorya['parent_id'] != null) {
+      foreach ($parent as $main) {
+         if ($categorya['parent_id'] == $main['category_id']) {
+           echo $main['name'];
+         }
+       } 
+       echo "=>";
+      } echo $categorya['name'];?></option>
+            <?php endforeach; ?>
+          </select> </td></tr>
+          
+          <tr>
+            <th> NAME</th>
+            <td><input type="text" name="category[name]" value="<?php echo $category['name'] ?>"></td>
+          </tr>
+          <tr>
+            <th> STATUS</th>
+            <td> <select name="category[status]" >
+              <option value="available"name="Available">available</option>
+              <option value="unavailable"name="unavailable">unavailable</option>
+              
+            </select> </td>
+          </tr>
+          <tr>
+            <th> DESCRIPTION</th>
+            <td><input type="text" name="category[description]" value="<?php echo $category['description'] ?>"></td>
+          </tr>
+        </form>
+        
+      </table>
+      <?php require_once "View/html/footer.phtml" ?>
+    </body>
+  </html>

@@ -1,0 +1,71 @@
+<?php
+$salesman = $this->getSalesmen();
+?>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="Model/Skin/css/style.css">
+    <title>salesman</title>
+  </head>
+  </style>
+  <body>
+    <?php require_once "View/html/header.phtml" ?>
+     <div>
+
+       <table>
+      <tr>
+      <td><h3>Edit salesman<h3></td>
+      <td><a class="btn btn-primary mx-2" href="<?php echo $this->getModelUrl()->getUrl('grid'); ?>&c=salesman">cancel</a> </td>
+      <form action="<?php echo $this->getModelUrl()->getUrl('update'); ?>" method="POST">
+      <td><button class="btn btn-primary">save</button></td>
+    </tr>
+    </table>
+    <br>
+    
+    <table class="table table-bordered">
+      <tr hidden>
+        <th> SALESMAN ID</th>
+        <td><input type="number" name="salesman[salesman_id]" value="<?php echo $salesman['salesman_id']?>"></td>
+      </tr>
+      <tr>
+        <th> FIRST_NAME</th>
+        <td><input type="text" name="salesman[first_name]" value="<?php echo $salesman['first_name']?>"></td>
+      </tr>
+      <tr>
+        <th> LAST_NAME</th>
+        <td><input type="text"  name="salesman[last_name]" value="<?php echo $salesman['last_name']?>"></td>
+      </tr>
+      <tr>
+        <th> EMAIL</th>
+        <td><input type="email" name="salesman[email]" value="<?php echo $salesman['email']?>"></td>
+      </tr>
+      <tr>
+        <th> GENDER</th>
+        <td> <select name="salesman[gender]"   >
+          <option value="male"name="male">male</option>
+          <option value="female"name="female">female</option>
+          
+        </select> </td>
+      </tr>
+      <tr>
+        <th> MOBILE</th>
+        <td><input type="mobile" name="salesman[mobile]" value="<?php echo $salesman['mobile']?>"></td>
+      </tr>
+      <tr>
+        <th> STATUS</th>
+        <td> <select name="salesman[status]"   >
+          <option value="available"name="Available">available</option>
+          <option value="unavailable"name="unavailable">unavailable</option>
+          
+        </select> </td>
+      </tr>
+      <tr>
+        <th> COMPANY</th>
+        <td><input type="text" name="salesman[company]" value="<?php echo $salesman['company']?>"></td>
+      </tr>
+    </form>
+    
+  </table>
+  <?php require_once "View/html/footer.phtml" ?>
+</body>
+</html>

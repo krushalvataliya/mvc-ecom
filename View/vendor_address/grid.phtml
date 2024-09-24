@@ -1,0 +1,35 @@
+<?php
+$address = $this->getVendorAddress();
+?>
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="Model/Skin/css/style.css">
+		<title>vendor</title>
+	</head>
+	<body>
+		<?php require_once "View/html/header.phtml" ?>
+		 <div><div><h3>VENDOR <ADDRESS></ADDRESS></h3></div></div>
+		<table class="table table-bordered">
+			<tr>
+				<th>ADDRESS ID</th>
+				<th>ADDRESS</th>
+				<th>CITY</th>
+				<th>STATE</th>
+				<th>COUNTRY</th>
+				<th>ZIP_CODE</th>
+				<th> </th>
+			</tr>
+			<tr>
+				<td><?php echo $address['address_id'] ?> </td>
+				<td><?php echo $address['address'] ?></td>
+				<td><?php echo $address['city'] ?></td>
+				<td><?php echo $address['state'] ?></td>
+				<td><?php echo $address['country'] ?></td>
+				<td><?php echo $address['zip_code'] ?></td>
+				<td><a href="<?php echo $this->getModelUrl()->getUrl('edit','vendor_address', ['vendor_id'=> $address['vendor_id']]); ?>">edit</a></td>
+			</tr>
+		</table>
+	</body>
+	<?php require_once "View/html/footer.phtml" ?>
+</html>

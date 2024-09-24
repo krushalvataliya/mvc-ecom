@@ -1,0 +1,49 @@
+<?php
+$address = $this->getVendorAddress();
+?>
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="Model/Skin/css/style.css">
+		<title>vendor</title>
+	</head>
+	<body>
+		<?php require_once "View/html/header.phtml" ?>
+		<table>
+			<tr>
+				<td><h3>Edit vendor address<h3></td>
+				<td><a class="btn btn-primary mx-2" href="<?php echo $this->getModelUrl()->getUrl('grid'); ?>">cancel</a> </td>
+				<form action="<?php echo $this->getModelUrl()->getUrl('update'); ?>" method="POST">
+					<td><button class="btn btn-primary"> save</button></td>
+				</tr>
+			</table>
+				<br>
+			<table class="table table-bordered">
+				<tr hidden>
+					<th> VENDOR_ID</th>
+					<td><input type="number" name="address[vendor_id]" value="<?php echo $address['vendor_id']?>"></td>
+				</tr>
+				<tr>
+					<th> ADDRESS</th>
+					<td><input type="text" name="address[address]" value="<?php echo $address['address']?>"></td>
+				</tr>
+				<tr>
+					<th> CITY</th>
+					<td><input type="text" name="address[city]" value="<?php echo $address['city']?>"></td>
+				</tr>
+				<tr>
+					<th> STATE</th>
+					<td><input type="text" name="address[state]" value="<?php echo $address['state']?>"></td>
+				</tr>
+				<th> COUNTRY</th>
+				<td><input type="text" name="address[country]" value="<?php echo $address['country']?>"></td>
+			</tr>
+			<tr>
+				<th> ZIP_CODE</th>
+				<td><input type="number" name="address[zip_code]" value="<?php echo $address['zip_code']?>"></td>
+			</tr>
+		</form>
+	</table>
+	<?php require_once "View/html/footer.phtml" ?>
+</body>
+</html>

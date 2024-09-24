@@ -1,0 +1,69 @@
+<?php 
+$shiping_method = $this->getShippingMethod();
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="Model/Skin/css/style.css">
+	<title>shiping method</title>
+</head>
+<style type="text/css">
+  .formbutton{
+  height: 48px;
+width: 100px;
+background-color:#04aa6d;
+text-align: center;
+text-decoration-color: white;
+
+margin-top: 4px; 
+}
+</style>
+<body>
+
+<?php require_once "View/html/header.phtml" ?>
+
+
+       <table>
+      <tr>
+      <td><h3>Edit shiping method<h3></td>
+      <td><a class="btn btn-primary mx-2" href="<?php echo $this->getModelUrl()->getUrl('grid',null,null,true); ?>">cancel</a> </td>
+      <form action="<?php echo $this->getModelUrl()->getUrl('update'); ?>" method="POST">
+      <td><button class="btn btn-primary">save</button></td>
+    </tr>
+    </table>
+    <br>
+    
+<table class="table table-bordered">
+  
+<tr hidden>
+<th>SHIPPING METHOD ID</th>
+<td><input type="text" name="shiping_method[shiping_method_id]" value="<?php echo $shiping_method['shiping_method_id']?>"></td>
+</tr>
+
+<tr>
+<th>NAME</th>
+<td><input type="text" name="shiping_method[name]" value="<?php echo $shiping_method['name']?>"></td>
+</tr>
+
+<tr>
+<th>AMOUNT</th>
+<td><input type="number" name="shiping_method[amount]" value="<?php echo $shiping_method['amount']?>"></td>
+</tr>
+
+<th> STATUS</th>
+<td> <select name="shiping_method[status]"   >
+  <option value="available"name="available">available</option>
+  <option value="unavailable"name="unavailable">unavailable</option>
+ 
+</select> </td>
+</tr>
+
+
+
+</form>
+
+ 
+</table>
+<?php require_once "View/html/footer.phtml" ?>
+</body>
+</html>

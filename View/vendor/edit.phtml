@@ -1,0 +1,75 @@
+<?php 
+$vendor = $this->getVendor();
+?>
+<!DOCTYPE html>
+<html>
+<head>
+   	<link rel="stylesheet" href="Model/Skin/css/style.css">
+	<title>vendor</title>
+</head>
+<body>
+<?php require_once "View/html/header.phtml" ?>
+
+  <table>
+      <tr>
+      <td><h3>Edit vendor<h3></td>
+      <td><a class="btn btn-primary mx-2" href="<?php echo $this->getModelUrl()->getUrl('grid',null,null,true); ?>">cancel</a> </td>
+      <form action="<?php echo $this->getModelUrl()->getUrl('update'); ?>" method="POST">
+      <td><button class="btn btn-primary">Add</button></td>
+    </tr>
+    </table>
+    <br>
+
+<table class="table table-bordered">
+
+<tr hidden>
+<th> VENDOR ID</th>
+<td><input type="text" name="vendor[vendor_id]" value="<?php echo $vendor['vendor_id']?>"></td>
+</tr>
+
+<tr>
+<th> FIRST_NAME</th>
+<td><input type="text" name="vendor[first_name]" value="<?php echo $vendor['first_name']?>"></td>
+</tr>
+<tr>
+<th> LAST_NAME</th>
+<td><input type="text" name="vendor[last_name]" value="<?php echo $vendor['last_name']?>"></td>
+</tr>
+<tr>
+<th> EMAIL</th>
+<td><input type="email"  name="vendor[email]" value="<?php echo $vendor['email']?>"></td>
+</tr>
+<tr>
+<th> GENDER</th>
+<td> <select name="vendor[gender]"   >
+  <option value="male"name="male">male</option>
+  <option value="female"name="female">female</option>
+ 
+</select> </td>
+</tr>
+<tr>
+<th> MOBILE</th>
+<td><input type="mobile"  name="vendor[mobile]" value="<?php echo $vendor['mobile']?>"></td>
+</tr>
+<tr>
+<th> STATUS</th>
+<td> <select name="vendor[status]">
+  <option value="available"name="avilable">available</option>
+  <option value="unavailable"name="unavailable">unavailable</option>
+ 
+</select> </td>
+</tr>
+
+<tr>
+<th> COMPANY</th>
+<td><input type="text"  name="vendor[company]" value="<?php echo $vendor['company']?>"></td>
+</tr>
+
+
+</form>
+
+ 
+</table>
+<?php require_once "View/html/footer.phtml" ?>
+</body>
+</html>
